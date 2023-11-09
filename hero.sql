@@ -69,3 +69,12 @@ CREATE TABLE IF NOT EXISTS public.HeroItem
 --Select add column price 
 ALTER TABLE public.item
 ADD COLUMN item_price DECIMAL(10, 2);
+
+-- Update hero 1 to inactive
+UPDATE public.hero
+SET is_active = false
+WHERE hero_id = 1;
+
+-- Delete the item associated with hero 1
+DELETE FROM public.heroitem
+WHERE hero_id = 1;
