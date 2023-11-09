@@ -84,3 +84,11 @@ SELECT p.player_name, h.hero_name
 FROM public.player p
 INNER JOIN public.hero h ON p.hero_id = h.hero_id
 WHERE h.is_active = true;
+
+--Select avg player level per class
+SELECT c.class_name, AVG(p.player_level) AS average_level
+FROM public.class c
+LEFT JOIN public.hero h ON c.class_id = h.class_id
+LEFT JOIN public.player p ON h.hero_id = p.hero_id
+GROUP BY c.class_name
+ORDER BY average_level DESC;
